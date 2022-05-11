@@ -1,0 +1,23 @@
+{
+  "name": "snap_calculator",
+  "version": "1.0.0",
+  "description": "command-line calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hankeliu2015/snap_calculator.git"
+  },
+  "author": "Hank Liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hankeliu2015/snap_calculator/issues"
+  },
+  "homepage": "https://github.com/hankeliu2015/snap_calculator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "readline-sync": "^1.4.10"
+  }
+}
