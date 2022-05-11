@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/hankeliu2015/snap_calculator/issues"
   },
-  "homepage": "https://github.com/hankeliu2015/snap_calculator#readme"
+  "homepage": "https://github.com/hankeliu2015/snap_calculator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "readline-sync": "^1.4.10"
+  }
 }

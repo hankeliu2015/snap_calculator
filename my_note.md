@@ -44,4 +44,69 @@ single input difference from multiple input
 
 1. single input function need to store the previous argument in the array after return the the last numArr el.
 2. add a condition before the operation performed could be performed, return the current last el in numberArr.
-3. if argument is just a number, add it to the numArr and return the last el. if the argument is operator, add it to the operArr and perform arithmetic operation and return the last el.
+3. if argument is just a number without operator, add it to the numArr and return the last el.
+4. if the argument is operator,previous logic will perform arithmetic operation on the last 2 number els and return the new last el.
+
+interactive argument input solution
+
+1. accept command line arguments and parse them
+2. integrate the readline module into calc function and add a quit condition.
+3. keep run the inquirer in a loop with an exit button.
+
+4. use requirer to get the command line input string into calc function.
+5. conver the input string into numbers and operator array.
+
+/\*
+var readlineSync = require('readline-sync');
+
+// Wait for user's response.
+var userName = readlineSync.question('May I have your name? ');
+console.log('Hi ' + userName + '!');
+\*/
+
+/\*
+const readline = require('readline').createInterface({
+input: process.stdin,
+output: process.stdout,
+});
+
+readline.question(`Please type you input value and operator?`, input => {
+console.log(`Hi ${input}!`, `Input aata type is: ${typeof(input)}`);
+readline.close();
+});
+
+\*/
+
+/\*
+const inquirer = require('inquirer');
+// adding interactive command-line input
+const questions = [
+{
+type: 'input',
+name: 'name',
+message: "add your input:?",
+},
+];
+// need to keep calling the prompt method untill the exit command invoked
+inquirer.prompt(questions).then(answers => {
+console.log(`Hi ${answers.name}!`);
+});
+
+\*/
+
+/_
+inquirer.prompt([
+{name: 'name',
+message: 'Please type your input values or operators seperated by space:'
+}])
+.then((answers) => {
+inputStr = answers.name
+console.log(`input string is: ${inputStr}`)
+})
+.catch((error) => {
+if (error.isTtyError) {
+// Prompt couldn't be rendered in the current environment
+} else {
+// Something else went wrong
+}});
+_/

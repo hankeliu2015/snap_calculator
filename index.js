@@ -1,10 +1,13 @@
-// use an array of mixed integer and operator string as the calculator input arguments for now
-const calc = function(arr) {
+const inquirer = require('inquirer');
+
+const calc = function(inputStr) {
+    const inputArr = inputStr.split(' ')
+    //convert the input string to arr. 
     const numArr = [], operArr = []
-    // split and sort arr arguments into both arrays 
-    for (let el of arr) {
-        if(typeof(el) === 'number') {
-            numArr.push(el)
+    // seperate arr els into number and operator array
+    for (let el of inputArr) {
+        if(parseInt(el)) {
+            numArr.push(parseInt(el))
         } else if (el === '+' || el === '-' || el === '*' || el === '/') {
             operArr.push(el)
         } else {
@@ -48,10 +51,17 @@ const calc = function(arr) {
             } 
         }
     }
-
     console.log(newLastNumArr)
-
 }
-console.log(calc([5,5,5,8,'+','+','-']))
-// console.log(calc('5 5 5 8 + + -'))
-console.log(calc([5]))
+// console.log(calc([5,5,5,8,'+','+','-']))
+console.log(calc('5 5 5 8 + + -'))
+// console.log(calc([5]))
+
+
+
+
+
+
+
+
+  
