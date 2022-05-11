@@ -18,21 +18,27 @@ const calc = function(arr) {
         let newLastEl = 0
         // if the last 2 number arr els are true , perform the operation
         if(numArr.length >= 2) {
-            // perform the action here
+            // arithmetic operations
             switch (currentOper) {
                 case '+': 
                 newLastEl = numArr[numArr.length - 2] + numArr[numArr.length - 1]
+                break;
                 case '-': 
                 newLastEl = numArr[numArr.length - 2] - numArr[numArr.length - 1]
+                break;
                 case '*': 
                 newLastEl = numArr[numArr.length - 2] * numArr[numArr.length - 1]
+                break;
                 case '/': 
                 newLastEl = numArr[numArr.length - 2] / numArr[numArr.length - 1]
+                break;
+                default: 
+                throw new Error(`arithmetic operator ${currenOper}  is not included in this app`)
             }
             // replace the last 2 els with newLastEl to num arr
             numArr.splice(-2, 2, newLastEl)
             // remove the first el from operArr
-            operArr.unshift()
+            operArr.shift()
             console.log(numArr[numArr.length - 1])
         } 
         // else {
@@ -42,5 +48,5 @@ const calc = function(arr) {
 
     
 }
-console.log(calc([5,5,5,8,'+','+','-']))
+console.log(calc([5,5,5,8,'+','+','/']))
 // console.log(calc('5 5 5 8 + + -'))
