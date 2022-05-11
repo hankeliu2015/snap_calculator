@@ -26,7 +26,7 @@ how to process multiple operators? 5 + 8 = 13; 5 + 13 = 18; 5 - 18 = -13
 5. the 2nd last num el and the last num el perform with the first operator el. both number els remove from array, the result push back into number array.
 6. remove the operator el from operator array. until the operator array lenght equal to 0, return the last number el.
 
-single interactive input
+single interactive input logic
 
 > 5 push the number argument into number array [5] []
 > 5 if operator array lenght is 0. return the last number array el.
@@ -37,9 +37,11 @@ single interactive input
 >
 > -     if the argument is an operator, push the operator into operator array [-]. if the operator array length greater than 0, the 2nd last el - the last el, both els remove from number array, their result push back to the number array [5, 8], returrn the last nubmer el. remove the first el from operator array.
 >   8 if the operator array length is 0, return the last number array el. [5, 8] []
->   / if the arg is an operator, perform above process.
->   0.625 // 5 / 8
+>   if the arg is an operator, perform above process.
+>   0.625 it is equal to 5 / 8
 
-store the integer data into an array. [1, 2, 3, 4]
+single input difference from multiple input
 
-use the operator argument value as the condition to perform mathmetic operation. update the array and return value.
+1. single input function need to store the previous argument in the array after return the the last numArr el.
+2. add a condition before the operation performed could be performed, return the current last el in numberArr.
+3. if argument is just a number, add it to the numArr and return the last el. if the argument is operator, add it to the operArr and perform arithmetic operation and return the last el.
