@@ -1,10 +1,7 @@
-const inquirer = require('inquirer')
-const { stringify } = require('querystring')
 const readline = require('readline')
-
 const numArr = [], operArr = []
 
-const calc = function(inputStr) {
+const calcLogic = function(inputStr) {
     const inputArr = inputStr.split(' ')
     //convert the input string to arr. 
     // seperate arr els into number and operator array
@@ -56,7 +53,7 @@ const calc = function(inputStr) {
     }
     console.log(newLastNumArr)
 }
-// console.log(calc('5 5 5 8 + + -'))
+// console.log(calcLogic('5 5 5 8 + + -'))
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -69,12 +66,22 @@ const calcInput = function() {
     rl.question('Please type your input values and/or operators:', function (cmdLineInput) {
         if(cmdLineInput === 'q') { return rl.close()}   //base case
         strInput = cmdLineInput
-        calc(strInput)
+        calcLogic(strInput)
         calcInput()     //call recursive
         })
 }
 
-calcInput()
+// calcInput()
+
+const calcInputTest2 = async function() {
+    for await ( let cmdLineInput of rl) {
+        if ( cmdLineInput === 'q') {break}
+        calcLogic(cmdLineInput)
+    }
+}
+
+calcInputTest2()
+
 
 
 
