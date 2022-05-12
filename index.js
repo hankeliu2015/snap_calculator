@@ -3,63 +3,61 @@ const numArr = [], operArr = []
 
 const calcLogic = function(inputStr) {
     const inputArr = inputStr.split(' ')
-    console.log('input array:',inputArr)
+    console.log('cmd-line input convert to array:',inputArr)
     //convert the input string to arr. 
-    // seperate arr els into number and operator array
+    // filter arr els into number array and operator array
     for (let el of inputArr) {
         if(parseInt(el)) {
             numArr.push(parseInt(el))
         } else if (el === '+' || el === '-' || el === '*' || el === '/') {
             operArr.push(el)
         } else {
-            throw new Error('Input data must be valid integer or operator')
+            throw new Error('Input data must be valid number or operator')
         }
     }
-    console.log('Number array:', numArr, 'Operator array:', operArr)
+    console.log('converted to 2 arrays | number array:', numArr, 'Operator array:', operArr)
 
-    // check if the the operArr and numArr length before perform arithmetic operations  
-    let newLastNumArr = numArr[numArr.length - 1]
-    // there is only one number argument without any operator arguments
+    let newLastNumEl = numArr[numArr.length - 1]
+    // if there is only one number argument without any operator arguments
     if(numArr.length === 1 && operArr.length === 0) {
-        console.log('Single number argument output:',newLastNumArr)
+        console.log('calc output for single number:',newLastNumEl)
+        // check the operArr and numArr length before perform arithmetic operations  
     } else if(operArr.length >= 1) {
-        // when function received on or more operator arguments
-        // perform operation for the last 2 numArr els
+        // when operArr has at least one el, perform operation for the last 2 numArr els
         // need data validation and throw errors for numbers and operators mismatch - wip
         while(operArr.length > 0) {
             // obtain the first operator and remove it from the operArr
             let currentOper = operArr.shift()
-            // if the last 2 number arr els are true and operArr still has one element , perform the operation
+            // if numberArr 2 or more els, perform the operation
             if(numArr.length >= 2) {
                 switch (currentOper) {
                     case '+': 
-                    newLastNumArr = numArr[numArr.length - 2] + numArr[numArr.length - 1]
+                    newLastNumEl = numArr[numArr.length - 2] + numArr[numArr.length - 1]
                     break;
                     case '-': 
-                    newLastNumArr = numArr[numArr.length - 2] - numArr[numArr.length - 1]
+                    newLastNumEl = numArr[numArr.length - 2] - numArr[numArr.length - 1]
                     break;
                     case '*': 
-                    newLastNumArr = numArr[numArr.length - 2] * numArr[numArr.length - 1]
+                    newLastNumEl = numArr[numArr.length - 2] * numArr[numArr.length - 1]
                     break;
                     case '/': 
-                    newLastNumArr = numArr[numArr.length - 2] / numArr[numArr.length - 1]
+                    newLastNumEl = numArr[numArr.length - 2] / numArr[numArr.length - 1]
                     // break;
                     // default: 
                     // throw new Error(`arithmetic operator ${currenOper} is not included in this app`)
                 }
                 // remove the last 2 els from numArr
-                // if there still el left in numArr, add the new last number back into numArr
+                // if there still any els left in numArr, add the new last number el back into numArr
                 numArr.splice(-2, 2)
                 if(numArr.length > 0) {
-                    numArr.push(newLastNumArr)
+                    numArr.push(newLastNumEl)
                 } 
             } 
         }
     }
-    // the last number el need to be removed from number array? 
 
-    console.log('after operation - Numbers array:', numArr, 'Operators array:', operArr)
-    console.log(newLastNumArr)
+    console.log('after operation | Numbers array:', numArr, 'Operators array:', operArr)
+    console.log('calc output:',newLastNumEl)
 }
 console.log(calcLogic('5 5 +'))
 // console.log(calcLogic('5 5 5 8 + + -'))
