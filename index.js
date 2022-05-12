@@ -3,6 +3,7 @@ const numArr = [], operArr = []
 
 const calcLogic = function(inputStr) {
     const inputArr = inputStr.split(' ')
+    console.log('input array:',inputArr)
     //convert the input string to arr. 
     // seperate arr els into number and operator array
     for (let el of inputArr) {
@@ -29,7 +30,7 @@ const calcLogic = function(inputStr) {
             // obtain the first operator and remove it from the operArr
             let currentOper = operArr.shift()
             // if the last 2 number arr els are true and operArr still has one element , perform the operation
-            if(numArr.length >= 2 && operArr.length >=1) {
+            if(numArr.length >= 2) {
                 switch (currentOper) {
                     case '+': 
                     newLastNumArr = numArr[numArr.length - 2] + numArr[numArr.length - 1]
@@ -44,22 +45,33 @@ const calcLogic = function(inputStr) {
                     newLastNumArr = numArr[numArr.length - 2] / numArr[numArr.length - 1]
                     // break;
                     // default: 
-                    // throw new Error(`arithmetic operator ${currenOper}  is not included in this app`)
+                    // throw new Error(`arithmetic operator ${currenOper} is not included in this app`)
                 }
-                // replace the last 2 els with newLastNumArr to num arr
-                numArr.splice(-2, 2, newLastNumArr)
+                // remove the last 2 els from numArr
+                // if there still el left in numArr, add the new last number back into numArr
+                numArr.splice(-2, 2)
+                if(numArr.length > 0) {
+                    numArr.push(newLastNumArr)
+                } 
             } 
         }
     }
+    // the last number el need to be removed from number array? 
+
+    console.log('after operation - Numbers array:', numArr, 'Operators array:', operArr)
     console.log(newLastNumArr)
 }
+console.log(calcLogic('5 5 +'))
 // console.log(calcLogic('5 5 5 8 + + -'))
+// console.log(calcLogic('5 5 5 + -'))
 
+/*
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
+  // recursive solution
 const calcInput = function() {
     let strInput = ''
     
@@ -73,14 +85,19 @@ const calcInput = function() {
 
 // calcInput()
 
-const calcInputTest2 = async function() {
-    for await ( let cmdLineInput of rl) {
-        if ( cmdLineInput === 'q') {break}
-        calcLogic(cmdLineInput)
-    }
-}
+// async function solution 
+// const calcInputTest2 = async function() {
+//     for await ( let cmdLineInput of rl) {
+//         if ( cmdLineInput === 'q') {break}
+//         calcLogic(cmdLineInput)
+//     }
+// }
 
-calcInputTest2()
+// calcInputTest2()
+
+*/
+
+
 
 
 
