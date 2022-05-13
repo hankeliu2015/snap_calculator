@@ -5,6 +5,7 @@ const calcLogic = function(inputStr) {
     //convert the input string to arr. 
     const inputArr = inputStr.split(' ')
     console.log('cmd-line input convert to array:',inputArr)
+
     // filter arr els into number array and operator array
     for (let el of inputArr) {
         if(parseInt(el)) {
@@ -71,7 +72,16 @@ const calcLogic = function(inputStr) {
 // console.log(calcLogic('5 5 5 8 + + -'))
 // console.log(calcLogic('5 5 5 + -'))
 
-// async function solution 
+// calc utility function 
+const calcUtility = function(cmd) {
+    // a show command to verify numbers and operators left - show
+    // a clear command clear all numbers and operators. confirm clear command - wip
+    if (cmd === 'show') {
+        console.log(`Numbers: ${numArr} | Operators: ${operArr}`)
+    } 
+}
+
+// async solution to manage cmd-line input and exit program
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -79,8 +89,14 @@ const rl = readline.createInterface({
 
 const calcInputLoop = async function() {
     for await ( let cmdLineInput of rl) {
-        if ( cmdLineInput === 'q') { break }
-        calcLogic(cmdLineInput)
+        let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
+        if ( cmdLineStr === 'q') {
+             break 
+            } else if ( cmdLineStr === 'show') {
+                calcUtility(cmdLineStr)
+            } else {
+                calcLogic(cmdLineStr)
+            }
     }
 }
 
