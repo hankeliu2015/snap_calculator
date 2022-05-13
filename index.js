@@ -18,10 +18,13 @@ const calcLogic = function(inputStr) {
     console.log('converted to 2 arrays | number array:', numArr, 'Operator array:', operArr)
 
     let newLastNumEl = numArr[numArr.length - 1]
-    // if there is only one number argument without any operator arguments
-    if(numArr.length === 1 && operArr.length === 0) {
+
+    // if there are only numbers input without any operators, not perform arithmetic operation
+    if(operArr.length === 0) {
+        // output the last number in the numArr
         console.log('calc output for single number:',newLastNumEl)
-        // check the operArr and numArr length before perform arithmetic operations  
+
+        // when operators added in arguments  
     } else if(operArr.length >= 1) {
         // when operArr has at least one el, perform operation for the last 2 numArr els
         // need data validation and throw errors for numbers and operators mismatch - wip
@@ -59,45 +62,21 @@ const calcLogic = function(inputStr) {
     console.log('after operation | Numbers array:', numArr, 'Operators array:', operArr)
     console.log('calc output:',newLastNumEl)
 }
-console.log(calcLogic('5 5 +'))
+// console.log(calcLogic('5 5 +'))
 // console.log(calcLogic('5 5 5 8 + + -'))
 // console.log(calcLogic('5 5 5 + -'))
 
-/*
+// async function solution 
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
-  // recursive solution
-const calcInput = function() {
-    let strInput = ''
-    
-    rl.question('Please type your input values and/or operators:', function (cmdLineInput) {
-        if(cmdLineInput === 'q') { return rl.close()}   //base case
-        strInput = cmdLineInput
-        calcLogic(strInput)
-        calcInput()     //call recursive
-        })
+const calcInputTest2 = async function() {
+    for await ( let cmdLineInput of rl) {
+        if ( cmdLineInput === 'q') { break }
+        calcLogic(cmdLineInput)
+    }
 }
 
-// calcInput()
-
-// async function solution 
-// const calcInputTest2 = async function() {
-//     for await ( let cmdLineInput of rl) {
-//         if ( cmdLineInput === 'q') {break}
-//         calcLogic(cmdLineInput)
-//     }
-// }
-
-// calcInputTest2()
-
-*/
-
-
-
-
-
-
-  
+calcInputTest2()
