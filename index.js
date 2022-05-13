@@ -5,6 +5,7 @@ const calcLogic = function(inputStr) {
     //convert the input string to arr. 
     const inputArr = inputStr.split(' ')
     console.log('cmd-line input convert to array:',inputArr)
+
     // filter arr els into number array and operator array
     for (let el of inputArr) {
         if(parseInt(el)) {
@@ -17,12 +18,12 @@ const calcLogic = function(inputStr) {
     }
     console.log('converted arrays | number array:', numArr, 'Operator array:', operArr)
     
-    let operResult = numArr[numArr.length - 1]
+    let calcResult = numArr[numArr.length - 1]
 
     // if there are only numbers input without any operators, not perform arithmetic operation
     if(operArr.length === 0) {
         // output the current input number, which is the last el in the numArr
-        console.log(operResult)
+        console.log(calcResult)
         // when operators added in arguments  
     } else if (operArr.length === 1 && numArr.length < 2) {
         console.log('this is postfix calculator. Please keep enough numbers ahead of operators')
@@ -43,44 +44,69 @@ const calcLogic = function(inputStr) {
             if(numArr.length >= 2) {
                 switch (currentOper) {
                     case '+': 
-                    operResult = numArr[numArr.length - 2] + numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] + numArr[numArr.length - 1]
                     break;
                     case '-': 
-                    operResult = numArr[numArr.length - 2] - numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] - numArr[numArr.length - 1]
                     break;
                     case '*': 
-                    operResult = numArr[numArr.length - 2] * numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] * numArr[numArr.length - 1]
                     break;
                     case '/': 
-                    operResult = numArr[numArr.length - 2] / numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] / numArr[numArr.length - 1]
                     // break;
                     // default: 
                     // throw new Error(`arithmetic operator ${currenOper} is not included in this app`)
                 }
                 // remove the last 2 els from numArr
                 // save the operation result and push it into numArr. 
-                numArr.splice(-2, 2, operResult)
+                numArr.splice(-2, 2, calcResult)
             } 
         }
     }
 
     console.log('after operation | Numbers array:', numArr, 'Operators array:', operArr)
-    console.log('calc output:',operResult)   
+    console.log('calc output:',calcResult)   
 }
 // console.log(calcLogic('5 5 +'))
 // console.log(calcLogic('5 5 5 8 + + -'))
 // console.log(calcLogic('5 5 5 + -'))
 
-// async function solution 
+// calc utility function 
+const userInstruction = `
+    quit    quit the app
+    show    show number array and operator array
+    examples: 
+            type in: 1 2 3 + - 
+            output: -4
+`
+const calcUtility = function(cmdLineStr) {
+    // a show command to verify numbers and operators left - show
+    // a clear command clear all numbers and operators. confirm clear command - wip
+    if (cmdLineStr === 'show') {
+        console.log(`Numbers: ${numArr} | Operators: ${operArr}`)
+    } else if(cmdLineStr === 'help') {
+        console.log(userInstruction)
+    }
+}
+
+// async solution to manage cmd-line input and exit program
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
 
 const calcInputLoop = async function() {
+    console.log("welcome to postFix calculator! \nType 'q' to quit. \nType 'help' for instructions and examples")
     for await ( let cmdLineInput of rl) {
-        if ( cmdLineInput === 'q') { break }
-        calcLogic(cmdLineInput)
+        let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
+        if ( cmdLineStr === 'q') {
+             break 
+            } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
+                calcUtility(cmdLineStr)
+            } else {
+                calcLogic(cmdLineStr)
+            }
     }
 }
 
