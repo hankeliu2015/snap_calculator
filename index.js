@@ -73,12 +73,21 @@ const calcLogic = function(inputStr) {
 // console.log(calcLogic('5 5 5 + -'))
 
 // calc utility function 
-const calcUtility = function(cmd) {
+const userInstruction = `
+    quit    quit the app
+    show    show number array and operator array
+    examples: 
+            type in: 1 2 3 + - 
+            output: -4
+`
+const calcUtility = function(cmdLineStr) {
     // a show command to verify numbers and operators left - show
     // a clear command clear all numbers and operators. confirm clear command - wip
-    if (cmd === 'show') {
+    if (cmdLineStr === 'show') {
         console.log(`Numbers: ${numArr} | Operators: ${operArr}`)
-    } 
+    } else if(cmdLineStr === 'help') {
+        console.log(userInstruction)
+    }
 }
 
 // async solution to manage cmd-line input and exit program
@@ -88,11 +97,12 @@ const rl = readline.createInterface({
   });
 
 const calcInputLoop = async function() {
+    console.log("welcome to postFix calculator! \nType 'q' to quit. \nType 'help' for instructions and examples")
     for await ( let cmdLineInput of rl) {
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
         if ( cmdLineStr === 'q') {
              break 
-            } else if ( cmdLineStr === 'show') {
+            } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
                 calcUtility(cmdLineStr)
             } else {
                 calcLogic(cmdLineStr)
