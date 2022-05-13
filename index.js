@@ -25,16 +25,16 @@ const calcLogic = function(inputStr) {
         console.log(operResult)
         // when operators added in arguments  
     } else if (operArr.length === 1 && numArr.length < 2) {
-        console.log('this is postfix calculator. Please put enough numbers ahead of operators')
+        console.log('this is postfix calculator. Please keep enough numbers ahead of operators')
         operArr.pop()
     } else if (operArr.length + 1 > numArr.length) {
         console.log('this is postfix calculator. Please check the operators inputs must be one less than the number inputs ahead of them. Please try again')
-        // need to remove the multiple numbers and operators and keep the original els. 
+        // need to remove the multiple numbers and operators and keep the original else - wip
+        numArr = []
+        operArr = []
     } else if(operArr.length >= 1) {
         // when operArr has at least one el, perform operation for the last 2 numArr els
         // need data validation and throw errors for numbers and operators mismatch - wip
-        // console log the message to remind user Postfix caculator. 
-        console.log()
 
         while(operArr.length > 0) {
             // obtain the first operator and remove it from the operArr
@@ -58,11 +58,8 @@ const calcLogic = function(inputStr) {
                     // throw new Error(`arithmetic operator ${currenOper} is not included in this app`)
                 }
                 // remove the last 2 els from numArr
-                // if there still any els left in numArr, add the new last number el back into numArr
-                numArr.splice(-2, 2)
-                if(numArr.length > 0) {
-                    numArr.push(operResult)
-                } 
+                // save the operation result and push it into numArr. 
+                numArr.splice(-2, 2, operResult)
             } 
         }
     }
