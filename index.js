@@ -24,9 +24,17 @@ const calcLogic = function(inputStr) {
         // output the current input number, which is the last el in the numArr
         console.log(operResult)
         // when operators added in arguments  
+    } else if (operArr.length === 1 && numArr.length < 2) {
+        console.log('this is postfix calculator. Please put enough numbers ahead of operators')
+        operArr.pop()
+    } else if (operArr.length + 1 > numArr.length) {
+        console.log('this is postfix calculator. Please check the operators inputs must be one less than the number inputs ahead of them. Please try again')
+        // need to remove the multiple numbers and operators and keep the original els. 
     } else if(operArr.length >= 1) {
         // when operArr has at least one el, perform operation for the last 2 numArr els
         // need data validation and throw errors for numbers and operators mismatch - wip
+        // console log the message to remind user Postfix caculator. 
+        console.log()
 
         while(operArr.length > 0) {
             // obtain the first operator and remove it from the operArr
@@ -60,7 +68,7 @@ const calcLogic = function(inputStr) {
     }
 
     console.log('after operation | Numbers array:', numArr, 'Operators array:', operArr)
-    console.log('calc output:',operResult)
+    console.log('calc output:',operResult)   
 }
 // console.log(calcLogic('5 5 +'))
 // console.log(calcLogic('5 5 5 8 + + -'))
