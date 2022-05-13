@@ -96,9 +96,10 @@ const rl = readline.createInterface({
     output: process.stdout
   });
 
-const calcInputLoop = async function() {
-    console.log("welcome to postFix calculator! \nType 'q' to quit. \nType 'help' for instructions and examples")
+const calcInput = async function() {
+    console.log("welcome to Postfix calculator! \nType numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples")
     for await ( let cmdLineInput of rl) {
+        // treaming leading and trailing whitespaces
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
         if ( cmdLineStr === 'q') {
              break 
@@ -110,4 +111,4 @@ const calcInputLoop = async function() {
     }
 }
 
-calcInputLoop()
+calcInput()
