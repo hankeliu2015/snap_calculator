@@ -17,12 +17,12 @@ const calcLogic = function(inputStr) {
     }
     console.log('converted arrays | number array:', numArr, 'Operator array:', operArr)
     
-    let operResult = numArr[numArr.length - 1]
+    let calcResult = numArr[numArr.length - 1]
 
     // if there are only numbers input without any operators, not perform arithmetic operation
     if(operArr.length === 0) {
         // output the current input number, which is the last el in the numArr
-        console.log(operResult)
+        console.log(calcResult)
         // when operators added in arguments  
     } else if (operArr.length === 1 && numArr.length < 2) {
         console.log('this is postfix calculator. Please keep enough numbers ahead of operators')
@@ -43,29 +43,29 @@ const calcLogic = function(inputStr) {
             if(numArr.length >= 2) {
                 switch (currentOper) {
                     case '+': 
-                    operResult = numArr[numArr.length - 2] + numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] + numArr[numArr.length - 1]
                     break;
                     case '-': 
-                    operResult = numArr[numArr.length - 2] - numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] - numArr[numArr.length - 1]
                     break;
                     case '*': 
-                    operResult = numArr[numArr.length - 2] * numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] * numArr[numArr.length - 1]
                     break;
                     case '/': 
-                    operResult = numArr[numArr.length - 2] / numArr[numArr.length - 1]
+                    calcResult = numArr[numArr.length - 2] / numArr[numArr.length - 1]
                     // break;
                     // default: 
                     // throw new Error(`arithmetic operator ${currenOper} is not included in this app`)
                 }
                 // remove the last 2 els from numArr
                 // save the operation result and push it into numArr. 
-                numArr.splice(-2, 2, operResult)
+                numArr.splice(-2, 2, calcResult)
             } 
         }
     }
 
     console.log('after operation | Numbers array:', numArr, 'Operators array:', operArr)
-    console.log('calc output:',operResult)   
+    console.log('calc output:',calcResult)   
 }
 // console.log(calcLogic('5 5 +'))
 // console.log(calcLogic('5 5 5 8 + + -'))
