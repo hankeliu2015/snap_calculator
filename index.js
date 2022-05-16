@@ -74,7 +74,8 @@ const calcLogic = function(inputStr) {
 
 // calc utility function 
 const userInstruction = `
-    quit    quit the app
+    q       quit the app
+    exit    quit the app
     show    show number array and operator array
     examples: 
             type in: 1 2 3 + - 
@@ -101,7 +102,7 @@ const calcInput = async function() {
     for await ( let cmdLineInput of rl) {
         // treaming leading and trailing whitespaces
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
-        if ( cmdLineStr === 'q') {
+        if ( cmdLineStr === 'q' || 'exit') {
              break 
             } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
                 calcUtility(cmdLineStr)
