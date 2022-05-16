@@ -2,7 +2,7 @@ const readline = require('readline')
 const numArr = [], operArr = []
 
 const calcLogic = function(inputStr) {
-    //convert the input string to arr. 
+    //validate and convert the input string to arr. 
     const inputArr = inputStr.split(' ')
     console.log('cmd-line input convert to array:',inputArr)
 
@@ -91,6 +91,40 @@ const calcUtility = function(cmdLineStr) {
     }
 }
 
+/*
+*/
+
+const currentNumArr = [], currentOperArr = []
+const inputStrValidation = function(cmdLineStr) {
+    // if str operators ahead of numbers in the string, ask user to re-type
+    // need counter to track when the numbers trun into operator 
+    let operInputStarted = false
+    // need the index 
+    for( let i = 0; i < cmdLineStr.length; i ++) {
+        // how to know if the operInput started? 
+        let currentChar = cmdLineStr.charAt(i)
+
+        if (currentChar === '+' || currentChar === '-' || currentChar === '*' || currentChar === '/') {
+            operInputStarted = true
+            currentOperArr.push(currentChar)
+        } else if (!operInputStarted && parseInt(currentChar)) {
+            // if current char  is a number and operInputStarted is false
+            currentNumArr.push(parseInt(currentChar))
+        } else if (operInputStarted && !parseInt(currentChar)) {
+            // if operINptuStarted is true, and char is number again. do nothing remind user to retype the input. 
+            console.log('This is a postFix calculator, please the operators much follow numbers. Please check your input and retype.')
+            break
+            // go back to the commmand line input prompt
+        }
+        console.log(`current number: ${currentNumArr}; current oper: ${currentOperArr}`)
+    }
+
+
+    // validation passed, concat both arrays with the numArr and operArr
+    // if operators more than numbers could perform, ask user retype. 
+}
+
+
 // async solution to manage cmd-line input and exit program
 const rl = readline.createInterface({
     input: process.stdin,
@@ -102,11 +136,13 @@ const calcInput = async function() {
     for await ( let cmdLineInput of rl) {
         // treaming leading and trailing whitespaces
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
-        if ( cmdLineStr === 'q' || 'exit') {
+        if ( cmdLineStr === 'q' || cmdLineStr === 'exit') {
              break 
             } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
                 calcUtility(cmdLineStr)
             } else {
+                //validate the number and operators input follow the postfix calc logic. 
+                inputStrValidation(cmdLineStr)
                 calcLogic(cmdLineStr)
             }
     }
