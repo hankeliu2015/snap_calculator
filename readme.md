@@ -8,6 +8,7 @@ A command line postfix calculator app build upon node.js
 
 - calcLogic() function defines arithmetic logic and performs arithmetic operation
 - calcUtility() function manages calcuator features to improve user experience, such as command line instructions and demo input/output examples. More features can be added here base on users feedbacks.
+- inputStrValidation() funciton validate user input. Provide user options to re-enter corrected data.
 - use ReadLine module to obtain bash terminal command line input string
 
 - choose an asynchronous calcInput() function to manage user interactive runtime command line input/output. Did not use recursive function to manage interactive runtime input. JavaScript Promise's Async/await is more efficient to manage. Recursive function also consumes more memory space and time comlexity.
