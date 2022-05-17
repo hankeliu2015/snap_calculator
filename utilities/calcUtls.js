@@ -7,7 +7,7 @@ const userInstruction = `
             type in: 1 2 3 + - 
             output: -4
 `
-const calcUtility = function(cmdLineStr) {
+module.exports = calcUtility = function(cmdLineStr, numArr, operArr) {
     // a show command to verify numbers and operators left - show
     // a clear command clear all numbers and operators. confirm clear command - wip
     if (cmdLineStr === 'show') {
@@ -16,5 +16,3 @@ const calcUtility = function(cmdLineStr) {
         console.log(userInstruction)
     }
 }
-
-exports.calcUtility = calcUtility
