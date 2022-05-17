@@ -1,4 +1,4 @@
-module.exports = inputStrValidation = function(cmdLineStr) {
+module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], currentOperArr = []) {
     // if str operators ahead of numbers in the string, ask user to re-type
     // need counter to track when the numbers trun into operator 
     let operInputStarted = false
