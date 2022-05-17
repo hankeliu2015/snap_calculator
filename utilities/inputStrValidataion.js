@@ -1,23 +1,22 @@
 module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], currentOperArr = []) {
+    // convert the string into array
+    let mixedInputArr = cmdLineStr.split(' ')
     // track when the numbers turn into operator 
     let operInputStarted = false
-    for( let i = 0; i < cmdLineStr.length; i ++) {
-        let currentChar = cmdLineStr.charAt(i)
+    for( let i = 0; i < mixedInputArr.length; i ++) {
+        let currentEl = mixedInputArr[i]
 
-        if (currentChar === '+' || currentChar === '-' || currentChar === '*' || currentChar === '/') {
+        if (currentEl === '+' || currentEl === '-' || currentEl === '*' || currentEl === '/') {
             operInputStarted = true
-            currentOperArr.push(currentChar)
-        } else if (currentChar === ' ') {
-            // if the char is a space, continue the loop and do nothing, 
-            continue
-        }else if (!operInputStarted && parseInt(currentChar)) {
+            currentOperArr.push(currentEl)
+        } else if (!operInputStarted && parseInt(currentEl)) {
             // if current char is a number and operInputStarted is false, push char to number array
-            currentNumArr.push(parseInt(currentChar))
-        } else if (operInputStarted && !parseInt(currentChar)) {
+            currentNumArr.push(parseInt(currentEl))
+        } else if (operInputStarted && !parseInt(currentEl)) {
             // if operInputStarted is true, more operators push into oper array 
-            currentOperArr.push(currentChar)
-        } else if (operInputStarted && parseInt(currentChar)) {
-            // if operIuptuStarted is true and current char is a number. reset the currentCharArr and currentOperArr. remind user to check the cmd-line input and retype corrected input. 
+            currentOperArr.push(currentEl)
+        } else if (operInputStarted && parseInt(currentEl)) {
+            // if operIuptuStarted is true and current char is a number. reset the currentNumArr and currentOperArr. remind user to check the cmd-line input and retype corrected input. 
             // break current loop
             currentNumArr = []
             currentOperArr = []
