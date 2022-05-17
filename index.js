@@ -1,43 +1,10 @@
-// const inputStrValidation = require('./utilities/inputStrValidataion')
-
+const inputStrValidation = require('./utilities/inputStrValidataion')
 const readline = require('readline')
+
 let numArr = []
 let operArr = []
 let currentNumArr = [] 
 let currentOperArr = []
-
-const inputStrValidation = function(cmdLineStr) {
-    // if str operators ahead of numbers in the string, ask user to re-type
-    // track when the numbers turn into operator 
-    let operInputStarted = false
-    for( let i = 0; i < cmdLineStr.length; i ++) {
-        let currentChar = cmdLineStr.charAt(i)
-
-        if (currentChar === '+' || currentChar === '-' || currentChar === '*' || currentChar === '/') {
-            operInputStarted = true
-            currentOperArr.push(currentChar)
-        } else if (currentChar === ' ') {
-            // if the char is a space, continue the loop and do nothing, 
-            continue
-        }else if (!operInputStarted && parseInt(currentChar)) {
-            // if current char is a number and operInputStarted is false
-            currentNumArr.push(parseInt(currentChar))
-        } else if (operInputStarted && !parseInt(currentChar)) {
-            // operInputStarted is true, more operator inputs 
-            currentOperArr.push(currentChar)
-        } else if (operInputStarted && parseInt(currentChar)) {
-            // if operIuptuStarted is true and current char is a number. reset the currentCharArr and currentOperArr. remind user to retype the input. 
-            // break current loop
-            currentNumArr = []
-            currentOperArr = []
-            console.log('This is a postFix calculator, the operators must follow numbers. Please check your numbers/operators order and re-type.')
-            break
-        } else {
-            // if operators more than numbers could perform, ask user retype - wip. 
-        }
-    }
-    console.log(`current number: ${currentNumArr}; current oper: ${currentOperArr}`)
-}
 
 const calcLogic = function(inputStr) {
    // concat current input numbers and operators with numArr and operArr 
@@ -134,7 +101,7 @@ const calcInput = async function() {
             } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
                 calcUtility(cmdLineStr)
             } else {
-                inputStrValidation(cmdLineStr)
+                inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
                 calcLogic()
             }
     }
