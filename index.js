@@ -1,24 +1,54 @@
+// const inputStrValidation = require('./utilities/inputStrValidataion')
+
 const readline = require('readline')
-const numArr = [], operArr = []
+let numArr = []
+let operArr = []
+let currentNumArr = [] 
+let currentOperArr = []
 
-const calcLogic = function(inputStr) {
-    //convert the input string to arr. 
-    const inputArr = inputStr.split(' ')
-    console.log('cmd-line input convert to array:',inputArr)
+const inputStrValidation = function(cmdLineStr) {
+    // if str operators ahead of numbers in the string, ask user to re-type
+    // track when the numbers turn into operator 
+    let operInputStarted = false
+    for( let i = 0; i < cmdLineStr.length; i ++) {
+        let currentChar = cmdLineStr.charAt(i)
 
-    // filter arr els into number array and operator array
-    for (let el of inputArr) {
-        if(parseInt(el)) {
-            numArr.push(parseInt(el))
-        } else if (el === '+' || el === '-' || el === '*' || el === '/') {
-            operArr.push(el)
+        if (currentChar === '+' || currentChar === '-' || currentChar === '*' || currentChar === '/') {
+            operInputStarted = true
+            currentOperArr.push(currentChar)
+        } else if (currentChar === ' ') {
+            // if the char is a space, continue the loop and do nothing, 
+            continue
+        }else if (!operInputStarted && parseInt(currentChar)) {
+            // if current char is a number and operInputStarted is false
+            currentNumArr.push(parseInt(currentChar))
+        } else if (operInputStarted && !parseInt(currentChar)) {
+            // operInputStarted is true, more operator inputs 
+            currentOperArr.push(currentChar)
+        } else if (operInputStarted && parseInt(currentChar)) {
+            // if operIuptuStarted is true and current char is a number. reset the currentCharArr and currentOperArr. remind user to retype the input. 
+            // break current loop
+            currentNumArr = []
+            currentOperArr = []
+            console.log('This is a postFix calculator, the operators must follow numbers. Please check your numbers/operators order and re-type.')
+            break
         } else {
-            throw new Error('Input data must be valid number or operators')
+            // if operators more than numbers could perform, ask user retype - wip. 
         }
     }
-    console.log('converted arrays | number array:', numArr, 'Operator array:', operArr)
-    
-    let calcResult = numArr[numArr.length - 1]
+    console.log(`current number: ${currentNumArr}; current oper: ${currentOperArr}`)
+}
+
+const calcLogic = function(inputStr) {
+   // concat current input numbers and operators with numArr and operArr 
+   numArr = numArr.concat(currentNumArr)
+   operArr = operArr.concat(currentOperArr)
+    // after concatenation, clear out currentNumberArr and currentOperArr
+    currentNumArr = []
+    currentOperArr = []
+
+   let calcResult = numArr[numArr.length - 1]
+   console.log('concatenated arrays | number array:', numArr, 'Operator array:', operArr)
 
     // if there are only numbers input without any operators, not perform arithmetic operation
     if(operArr.length === 0) {
@@ -30,17 +60,16 @@ const calcLogic = function(inputStr) {
         operArr.pop()
     } else if (operArr.length + 1 > numArr.length) {
         console.log('this is postfix calculator. Please check the operators inputs must be one less than the number inputs ahead of them. Please try again')
-        // need to remove the multiple numbers and operators and keep the original else - wip
-        numArr = []
-        operArr = []
+        // only need to remove the current input numbers and operators and keep the original numbers - wip
+        // numArr = []
+        // operArr = []
     } else if(operArr.length >= 1) {
         // when operArr has at least one el, perform operation for the last 2 numArr els
-        // need data validation and throw errors for numbers and operators mismatch - wip
 
         while(operArr.length > 0) {
             // obtain the first operator and remove it from the operArr
             let currentOper = operArr.shift()
-            // if numberArr 2 or more els, perform the operation
+            // if numberArr has 2 or more els, perform the operation
             if(numArr.length >= 2) {
                 switch (currentOper) {
                     case '+': 
@@ -64,17 +93,15 @@ const calcLogic = function(inputStr) {
             } 
         }
     }
-
-    console.log('after operation | Numbers array:', numArr, 'Operators array:', operArr)
+    console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
     console.log('calc output:',calcResult)   
 }
-// console.log(calcLogic('5 5 +'))
 // console.log(calcLogic('5 5 5 8 + + -'))
-// console.log(calcLogic('5 5 5 + -'))
 
 // calc utility function 
 const userInstruction = `
-    quit    quit the app
+    q       quit the app
+    exit    quit the app
     show    show number array and operator array
     examples: 
             type in: 1 2 3 + - 
@@ -101,12 +128,14 @@ const calcInput = async function() {
     for await ( let cmdLineInput of rl) {
         // treaming leading and trailing whitespaces
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
-        if ( cmdLineStr === 'q') {
+
+        if ( cmdLineStr === 'q' || cmdLineStr === 'exit') {
              break 
             } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
                 calcUtility(cmdLineStr)
             } else {
-                calcLogic(cmdLineStr)
+                inputStrValidation(cmdLineStr)
+                calcLogic()
             }
     }
 }

@@ -12,9 +12,11 @@ A command line postfix calculator app build upon node.js
 
 - choose an asynchronous calcInput() function to manage user interactive runtime command line input/output. Did not use recursive function to manage interactive runtime input. JavaScript Promise's Async/await is more efficient to manage. Recursive function also consumes more memory space and time comlexity.
 
-- calculation input error checking 1: If user add operators more than the numbers can perform, console log a message to ask user re-input and remove the entire numbers and operators. Will add a condition to seperate the previously stored data and user currently input data.
+- []calculation input error checking 1: If user add operators more than the numbers can perform, console log a message to ask user re-input and remove the entire numbers and operators. Will add a condition to seperate the previously stored data and user currently input data.
 
-- calculation input error checking 2: if user mixed operators inside numbers, have not able to detect. Might add a pre-check before stacking numbers and queuing operators.
+- [v]calculation input data validation 2: if user mixed operators inside numbers, inputStrValidation() function will not process data and console log a message to remind user making correction on input data.
+
+- [] negative input string still having issues
 
 - calculator utility features 1 - have not gaven user an option to clear out all the data. Need to add the promise error catch block to handle the promise rejection.
 
