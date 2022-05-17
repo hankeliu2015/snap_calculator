@@ -1,4 +1,5 @@
 const inputStrValidation = require('./utilities/inputStrValidataion')
+const calcUtility = require('./utilities/calcUtls')
 const readline = require('readline')
 
 let numArr = []
@@ -64,25 +65,6 @@ const calcLogic = function(inputStr) {
     console.log('calc output:',calcResult)   
 }
 // console.log(calcLogic('5 5 5 8 + + -'))
-
-// calc utility function 
-const userInstruction = `
-    q       quit the app
-    exit    quit the app
-    show    show number array and operator array
-    examples: 
-            type in: 1 2 3 + - 
-            output: -4
-`
-const calcUtility = function(cmdLineStr) {
-    // a show command to verify numbers and operators left - show
-    // a clear command clear all numbers and operators. confirm clear command - wip
-    if (cmdLineStr === 'show') {
-        console.log(`Numbers: ${numArr} | Operators: ${operArr}`)
-    } else if(cmdLineStr === 'help') {
-        console.log(userInstruction)
-    }
-}
 
 // async solution to manage cmd-line input and exit program
 const rl = readline.createInterface({
