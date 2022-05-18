@@ -1,4 +1,5 @@
 const inputStrValidation = require('./utilities/inputStrValidataion')
+const operLimitValidation = require('./utilities/operLimitValidation')
 const calcUtility = require('./utilities/calcUtls')
 const readline = require('readline')
 
@@ -16,21 +17,20 @@ const calcLogic = function(inputStr) {
     currentOperArr = []
 
    let calcResult = numArr[numArr.length - 1]
-   console.log('concatenated arrays | number array:', numArr, 'Operator array:', operArr)
+   console.log('all validated data before arithmetic operation | number array:', numArr, 'Operator array:', operArr)
 
     // if there are only numbers input without any operators, not perform arithmetic operation
+    // just output the calcResult, which is the last el in the numArr
     if(operArr.length === 0) {
-        // output the current input number, which is the last el in the numArr
         console.log(calcResult)
-        // when operators added in arguments  
+        // when operators started added, I should perform this in input validation  
     } else if (operArr.length === 1 && numArr.length < 2) {
+        // prevent user type in an operator without type in less than 2 number to perform operation. 
         console.log('this is postfix calculator. Please keep enough numbers ahead of operators')
         operArr.pop()
     } else if (operArr.length + 1 > numArr.length) {
-        console.log('this is postfix calculator. Please check the operators inputs must be one less than the number inputs ahead of them. Please try again')
-        // only need to remove the current input numbers and operators and keep the original numbers - wip
-        // numArr = []
-        // operArr = []
+        //double check if operators not out numbers. 
+        console.log('there are more operators than the total numbers can processed')
     } else if(operArr.length >= 1) {
         // when operArr has at least one el, perform operation for the last 2 numArr els
 
@@ -61,7 +61,7 @@ const calcLogic = function(inputStr) {
             } 
         }
     }
-    console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
+    console.log('data after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
     console.log('calc output:',calcResult)   
 }
 // console.log(calcLogic('5 5 5 8 + + -'))
@@ -84,6 +84,7 @@ const calcInput = async function() {
                 calcUtility(cmdLineStr)
             } else {
                 inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
+                operLimitValidation(currentNumArr, currentOperArr, numArr, operArr)
                 calcLogic()
             }
     }
