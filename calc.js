@@ -52,7 +52,7 @@ const calcLogic = function(inputStr) {
         }
     }
     // console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
-    console.log('calc output:',calcResult)   
+    console.log('calculator output:',calcResult)   
 }
 
 // const calcUtility = function(cmdLineStr, numArr = [], operArr =[]) {
@@ -79,14 +79,14 @@ const calcInput = async function() {
 
         if ( cmdLineStr === 'q' || cmdLineStr === 'exit') {
              break 
-            } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
-                calcUtility(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr)
-            } else {
-                inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
-                // no need operArr for oper validation before arithmetic operation
-                operLimitValidation(currentNumArr, currentOperArr, numArr)
-                calcLogic()
-            }
+        } else if ( cmdLineStr === 'show' || cmdLineStr === 'help' || cmdLineStr === 'clear') {
+            calcUtility(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr)
+        } else {
+            inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
+            // no need pass in operArr for operLimitvalidation
+            operLimitValidation(currentNumArr, currentOperArr, numArr)
+            calcLogic()
+        }
     }
 }
 

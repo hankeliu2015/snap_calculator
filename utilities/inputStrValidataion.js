@@ -8,6 +8,9 @@ module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], c
         
         if (currentEl === '+' || currentEl === '-' || currentEl === '*' || currentEl === '/') {
             operInputStarted = true
+            // only stopped the last operator before input char turn into number again. 
+            // how to undo the operators already pushed into currentOperArr? 
+
             currentOperArr.push(currentEl)
         } else if (!operInputStarted && parseInt(currentEl)) {
             // if current char is a number and operInputStarted is false, push char to number array
@@ -18,11 +21,11 @@ module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], c
         } else if (operInputStarted && parseInt(currentEl)) {
             // if operIuptuStarted is true and current char is a number. reset the currentNumArr and currentOperArr. remind user to check the cmd-line input and corrected errors. 
             // break current loop
-            currentNumArr = []
-            currentOperArr = []
+            currentNumArr.splice(0)
+            currentOperArr.splice(0)
             console.log('In postFix calculator, the operators must follow numbers. Please check your numbers/operators order and re-type.')
             break
-        } 
+        }
     }
-    // console.log(`1st validation - current number: ${currentNumArr}; current oper: ${currentOperArr}`)
+    // console.log(`1st validation end - current number: ${currentNumArr} | current oper: ${currentOperArr}`)
 }

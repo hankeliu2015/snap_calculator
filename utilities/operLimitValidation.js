@@ -9,8 +9,8 @@ module.exports = operLimitValidation = function(currentNumArr, currentOperArr, n
         // console.log(`2nd validation: curent oper length: ${currentOperArr.length}`)
         
         // reset currentNumberArr and currentOperArr when operators lenght over the limit
-        currentNumArr = []
-        currentOperArr = []
+        currentNumArr.splice(0)
+        currentOperArr.splice(0)
 
         // console.log(`curent oper length after reset: ${currentOperArr.length}`)
     } 
