@@ -55,6 +55,16 @@ const calcLogic = function(inputStr) {
     console.log('calc output:',calcResult)   
 }
 
+// const calcUtility = function(cmdLineStr, numArr = [], operArr =[]) {
+//     // a show command to verify numbers and operators left - show
+//     // a clear command clear all numbers and operators. confirm clear command - wip
+//     if (cmdLineStr === 'show') {
+//         console.log(`Numbers: ${numArr} | Operators: ${operArr}`)
+//     } else if(cmdLineStr === 'help') {
+//         console.log(userInstruction)
+//     }
+// }
+
 // async solution to manage cmd-line input and exit program
 const rl = readline.createInterface({
     input: process.stdin,
@@ -70,7 +80,7 @@ const calcInput = async function() {
         if ( cmdLineStr === 'q' || cmdLineStr === 'exit') {
              break 
             } else if ( cmdLineStr === 'show' || cmdLineStr === 'help') {
-                calcUtility(cmdLineStr)
+                calcUtility(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr)
             } else {
                 inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
                 // no need operArr for oper validation before arithmetic operation
