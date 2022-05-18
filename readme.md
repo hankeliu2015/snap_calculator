@@ -14,13 +14,13 @@ A command line postfix calculator app build upon node.js
 - inputStrValidation() funciton validate the current user input. Provide user options to re-enter corrected data.
 - operLimitValidation() function validate operator limits. Operators must be less then the total numbers - 1
 
-- postive and negative number input(edge case). Converting the cmdLineInput into an mixed array is necessary becuase each array element is able to be identified as negative/postive number or minus/plus operator. Identifying each string with the same way is more much complex.
+- enter postive $ negative number input: Converting the cmdLineInput into an mixed array is necessary becuase each array element is able to be identified as negative/postive number or minus/plus operator. Identifying each string with the same way is more much complex.
 
-- input data validation 1: if user mixed operators inside numbers, inputStrValidation() function will not process data and console log a message to remind user making correction on input data.
+- input data validation 1: if user mixed operators inside numbers, inputStrValidation() function will not process data and console log a message to remind user to enter correct data.
 
 - input data validation 2: If user add operators more than the numbers can operate, operLimitValidation() function will console log a message to ask user re-enter. The function will remove the the numbers and operators user just entered.
 
-- calculator utility features 1 - have not gaven user an option to clear out all the data. Need to add the promise error catch block to handle the promise rejection. show command still has bugs.
+- calculator utility features 1 - add 'clear' command for user to clear up all numbers 'saved' in calculator
 
 - calculator utility features 2 - user should have an undo command to undo clear-all-data.
 

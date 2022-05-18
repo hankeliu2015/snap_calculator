@@ -1,11 +1,17 @@
 // calc utility function and user instructions
 const userInstruction = `
+    cmd    description
+    --------------------
     q       quit the app
     exit    quit the app
-    show    show number array and operator array
+    show    show number array & operator array
+    clear   clear up all numbers stored in calculator
+    --------------------
     examples: 
-            type in: 1 2 3 + - 
-            output: -4
+    enter       | output
+    1           | 1
+    1 2 +       | 3
+    1 2 3 + -   | -4
 `
 module.exports = calcUtility = function(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr) {
     // a show command to verify numbers and operators left - show
