@@ -1,7 +1,7 @@
 module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], currentOperArr = [], numArr = [], operArr = []) {
-    // convert the string into array
+    // convert the string into array. this is necessary for identify negative number and minus. 
     let mixedInputArr = cmdLineStr.split(' ')
-    // track when operatord started to add 
+    // track when operator started to add 
     let operInputStarted = false
     for( let i = 0; i < mixedInputArr.length; i ++) {
         let currentEl = mixedInputArr[i]
@@ -24,5 +24,5 @@ module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], c
             break
         } 
     }
-    console.log(`current number: ${currentNumArr}; current oper: ${currentOperArr}`)
+    console.log(`first validation -current number: ${currentNumArr}; current oper: ${currentOperArr}`)
 }

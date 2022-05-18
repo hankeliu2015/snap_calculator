@@ -17,13 +17,12 @@ const calcLogic = function(inputStr) {
     currentOperArr = []
 
    let calcResult = numArr[numArr.length - 1]
-   console.log('valid inputs concatenated with | number array:', numArr, 'Operator array:', operArr)
+   console.log('all validated data before arithmetic operation | number array:', numArr, 'Operator array:', operArr)
 
     // if there are only numbers input without any operators, not perform arithmetic operation
+    // just output the calcResult, which is the last el in the numArr
     if(operArr.length === 0) {
-        // output the current input number, which is the last el in the numArr
         console.log(calcResult)
-
         // when operators started added, I should perform this in input validation  
     } else if (operArr.length === 1 && numArr.length < 2) {
         // prevent user type in an operator without type in less than 2 number to perform operation. 
@@ -62,7 +61,7 @@ const calcLogic = function(inputStr) {
             } 
         }
     }
-    console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
+    console.log('data after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
     console.log('calc output:',calcResult)   
 }
 // console.log(calcLogic('5 5 5 8 + + -'))
