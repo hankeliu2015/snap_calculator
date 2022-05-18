@@ -24,5 +24,5 @@ module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], c
             break
         } 
     }
-    console.log(`first validation -current number: ${currentNumArr}; current oper: ${currentOperArr}`)
+    console.log(`1st validation - current number: ${currentNumArr}; current oper: ${currentOperArr}`)
 }

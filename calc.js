@@ -5,7 +5,7 @@ const readline = require('readline')
 
 let numArr = []
 let operArr = []
-let currentNumArr = [] 
+let currentNumArr = []
 let currentOperArr = []
 
 const calcLogic = function(inputStr) {
@@ -16,24 +16,15 @@ const calcLogic = function(inputStr) {
     currentNumArr = []
     currentOperArr = []
 
-   let calcResult = numArr[numArr.length - 1]
-   console.log('all validated data before arithmetic operation | number array:', numArr, 'Operator array:', operArr)
-
-    // if there are only numbers input without any operators, not perform arithmetic operation
-    // just output the calcResult, which is the last el in the numArr
+    console.log('before arithmetic operation | number array:', numArr, 'Operator array:', operArr)
+    console.log('before arithmetic operation | currentNumArr:', currentNumArr, 'currentOperArr:', currentOperArr)
+    
+    let calcResult = numArr[numArr.length - 1]
+    // if there are only numbers input without any operators, not perform arithmetic operation. Just output the calcResult, which is the last element in the numArr
     if(operArr.length === 0) {
         console.log(calcResult)
-        // when operators started added, I should perform this in input validation  
-    } else if (operArr.length === 1 && numArr.length < 2) {
-        // prevent user type in an operator without type in less than 2 number to perform operation. 
-        console.log('this is postfix calculator. Please keep enough numbers ahead of operators')
-        operArr.pop()
-    } else if (operArr.length + 1 > numArr.length) {
-        //double check if operators not out numbers. 
-        console.log('there are more operators than the total numbers can processed')
     } else if(operArr.length >= 1) {
         // when operArr has at least one el, perform operation for the last 2 numArr els
-
         while(operArr.length > 0) {
             // obtain the first operator and remove it from the operArr
             let currentOper = operArr.shift()
@@ -61,10 +52,9 @@ const calcLogic = function(inputStr) {
             } 
         }
     }
-    console.log('data after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
+    console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
     console.log('calc output:',calcResult)   
 }
-// console.log(calcLogic('5 5 5 8 + + -'))
 
 // async solution to manage cmd-line input and exit program
 const rl = readline.createInterface({
@@ -84,7 +74,8 @@ const calcInput = async function() {
                 calcUtility(cmdLineStr)
             } else {
                 inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
-                operLimitValidation(currentNumArr, currentOperArr, numArr, operArr)
+                // no need operArr for oper validation before arithmetic operation
+                operLimitValidation(currentNumArr, currentOperArr, numArr)
                 calcLogic()
             }
     }
