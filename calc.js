@@ -16,8 +16,7 @@ const calcLogic = function(inputStr) {
     currentNumArr = []
     currentOperArr = []
 
-    console.log('before arithmetic operation | number array:', numArr, 'Operator array:', operArr)
-    console.log('before arithmetic operation | currentNumArr:', currentNumArr, 'currentOperArr:', currentOperArr)
+    // console.log('before arithmetic operation | number array:', numArr, 'Operator array:', operArr, 'currentNumArr:', currentNumArr, 'currentOperArr:', currentOperArr )
     
     let calcResult = numArr[numArr.length - 1]
     // if there are only numbers input without any operators, not perform arithmetic operation. Just output the calcResult, which is the last element in the numArr
@@ -52,7 +51,7 @@ const calcLogic = function(inputStr) {
             } 
         }
     }
-    console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
+    // console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
     console.log('calc output:',calcResult)   
 }
 

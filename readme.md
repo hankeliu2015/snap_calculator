@@ -42,7 +42,7 @@ A command line postfix calculator app build upon node.js
 
 ## Executing program
 
-- Inside cloned local repo folder, run: node index.js
+- Inside cloned local repo folder, run: node calc.js
 - Follow the command prompt instructions.
 - Type 'help' for instructions and examples
 - Type 'q' to quit the app.

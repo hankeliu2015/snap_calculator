@@ -5,14 +5,14 @@ module.exports = operLimitValidation = function(currentNumArr, currentOperArr, n
     
     if (currentOperArr.length > (numArr.length + currentNumArr.length - 1)) {
 
-        console.log(`2nd validation - Input operators are over the limit. The total operators should be one less than the input numbers plus previous numbers. Current input data is reset. Please re-enter valid numbers and operators`)
-        console.log(`curent oper length: ${currentOperArr.length}`)
+        console.log(`total input operators are over the limit. The amount of operators should be 1 less than the input numbers plus previous numbers. Current input data is reset. Please re-enter valid numbers and operators`)
+        // console.log(`2nd validation: curent oper length: ${currentOperArr.length}`)
         
         // reset currentNumberArr and currentOperArr when operators lenght over the limit
         currentNumArr = []
         currentOperArr = []
 
-        console.log(`curent oper length after reset: ${currentOperArr.length}`)
+        // console.log(`curent oper length after reset: ${currentOperArr.length}`)
     } 
-    console.log('2nd validation - end')
+    // console.log('2nd validation - end')
 }
