@@ -55,16 +55,6 @@ const calcLogic = function(inputStr) {
     console.log('calculator output:',calcResult)   
 }
 
-// const calcUtility = function(cmdLineStr, numArr = [], operArr =[]) {
-//     // a show command to verify numbers and operators left - show
-//     // a clear command clear all numbers and operators. confirm clear command - wip
-//     if (cmdLineStr === 'show') {
-//         console.log(`Numbers: ${numArr} | Operators: ${operArr}`)
-//     } else if(cmdLineStr === 'help') {
-//         console.log(userInstruction)
-//     }
-// }
-
 // async solution to manage cmd-line input and exit program
 const rl = readline.createInterface({
     input: process.stdin,
