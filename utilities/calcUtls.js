@@ -9,10 +9,13 @@ const userInstruction = `
 `
 module.exports = calcUtility = function(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr) {
     // a show command to verify numbers and operators left - show
-    // a clear command clear all numbers and operators. confirm clear command - wip
+    // a clear command clear all numbers and operators. clear - wip
     if (cmdLineStr === 'show') {
         console.log(`numbers: ${numArr} | operators: ${operArr} | current num: ${currentNumArr}| current operators: ${currentOperArr} `)
     } else if(cmdLineStr === 'help') {
         console.log(userInstruction)
+    } else if(cmdLineStr === 'clear') {
+        numArr.splice(0)
+        console.log('numbers stored in calculator all cleared')
     }
 }
