@@ -1,7 +1,8 @@
-const inputStrValidation = require('./utilities/inputStrValidataion')
-const operLimitValidation = require('./utilities/operLimitValidation')
-const calcUtility = require('./utilities/calcUtls')
-const readline = require('readline')
+import chalk from 'chalk';
+import {inputStrValidation} from './utilities/inputStrValidataion.js';
+import operLimitValidation from './utilities/operLimitValidation.js';
+import calcUtility from './utilities/calcUtls.js';
+import readline from 'readline';
 
 let numArr = []
 let operArr = []
@@ -62,7 +63,7 @@ const rl = readline.createInterface({
   });
 
 const calcInput = async function() {
-    console.log("welcome to Postfix calculator! \nType numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples")
+    console.log(chalk.green("welcome to Postfix calculator! \nType numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples"))
     for await ( let cmdLineInput of rl) {
         // treaming leading and trailing whitespaces
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')

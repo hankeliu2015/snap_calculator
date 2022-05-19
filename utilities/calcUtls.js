@@ -13,7 +13,7 @@ const userInstruction = `
     1 2 +       | 3
     1 2 3 + -   | -4
 `
-module.exports = calcUtility = function(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr) {
+const calcUtility = function(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr) {
     // a show command to verify numbers and operators stored in calculator
     // a clear command clear all numbers
     if (cmdLineStr === 'show') {
@@ -25,3 +25,5 @@ module.exports = calcUtility = function(cmdLineStr, numArr, operArr, currentNumA
         console.log('numbers stored in calculator all cleared')
     }
 }
+
+export default calcUtility
