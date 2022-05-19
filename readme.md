@@ -20,21 +20,22 @@ A command line postfix calculator app build upon node.js
 
 - input data validation 2: If user add operators more than the numbers can operate, operLimitValidation() function will console log a message to ask user re-enter. The function will remove the the numbers and operators user just entered.
 
+- add text colors for command line output messages
+
 - calculator utility features 1 - add 'clear' command for user to clear up all numbers 'saved' in calculator
 
-- calculator utility features 2 - user should have an undo command to undo clear-all-data.
+- calculator utility features 2 - user might want an undo command to undo clear-all-data.
 
-- user instruction and examples: need more details content and better format.
+- user instruction and examples: need more details content, better format and colors.
 
 - decimal palce: before getting into it, I would rather collect more user feedback.
-
-- error text need color
 
 ### Build With
 
 - Node.js
-- Readline module
 - JavaScript
+- Readline module
+- chalk
 
 ## Getting started
 
