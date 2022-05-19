@@ -1,6 +1,6 @@
 # Postfix Calculator
 
-A command line postfix calculator app build upon node.js
+:tv: A command line postfix calculator app build upon node.js
 
 ![This is an user command line input/output example image](./images/user_input_example.png)
 
@@ -26,9 +26,9 @@ A command line postfix calculator app build upon node.js
 
   ![screenshot example image 2](./images/input_data_validate_2.png)
 
-- Add text colors for command line output messages
+- :white_check_mark: Add text colors for command line output messages
 
-- Calculator utility features 1 - add 'clear' command for user to clear up all numbers 'saved' in calculator
+- :white_check_mark: Calculator utility features 1 - add 'clear' command for user to clear up all numbers 'saved' in calculator
 
 - Calculator utility features 2 - user might want an undo command to undo clear-all-data.
 
