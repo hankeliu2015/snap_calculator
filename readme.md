@@ -19,10 +19,12 @@ A command line postfix calculator app build upon node.js
 - Enter postive & negative number input: Converting the cmdLine input into a mixed array is necessary becuase each array element is able to be identified as negative/postive number or minus/plus operator. Identifying each string with the same way is more much complex.
 
 - Input data validation 1: if user mixed operators inside numbers, inputStrValidation() function will not process data and console log a message to remind user to enter correct data.
-  ![screenshot example image](./images/input_data_validate_1.png)
+
+  ![screenshot example image 1](./images/input_data_validate_1.png)
 
 - Input data validation 2: If user add operators more than the numbers can operate, operLimitValidation() function will console log a message to ask user re-enter. The function will remove the the numbers and operators user just entered.
-  ![screenshot example image](./images/input_data_validate_2.png)
+
+  ![screenshot example image 2](./images/input_data_validate_2.png)
 
 - Add text colors for command line output messages
 
