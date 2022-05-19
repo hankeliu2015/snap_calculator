@@ -63,7 +63,7 @@ const rl = readline.createInterface({
   });
 
 const calcInput = async function() {
-    console.log(chalk.green("welcome to Postfix calculator! \nType numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples"))
+    console.log(chalk.green("Welcome to Postfix Calculator! \nPlease enter numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples"))
     for await ( let cmdLineInput of rl) {
         // treaming leading and trailing whitespaces
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')

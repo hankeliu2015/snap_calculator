@@ -30,11 +30,13 @@
 
 - :white_check_mark: Calculator utility features 1 - add 'clear' command for user to clear up all numbers 'saved' in calculator
 
-- Calculator utility features 2 - user might want an undo command to undo clear-all-data.
+- :writing_hand: Calculator utility features 2 - user might want an undo command to undo clear-all-data.
 
-- User instruction and examples: need more details content, better format and colors.
+- :writing_hand: User instruction and examples: need more details content, better format and colors.
 
-- Decimal place: base on user feedback.
+- :writing_hand: Decimal place: base on user feedback.
+
+- :writing_hand: add a message for user when readline module exit
 
 ### Build With
 
