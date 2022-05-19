@@ -7,7 +7,7 @@ const operLimitValidation = function(currentNumArr, currentOperArr, numArr) {
     
     if (currentOperArr.length > (numArr.length + currentNumArr.length - 1)) {
 
-        console.log(chalk.red(`total input operators are over the limit. The amount of operators should be 1 less than the input numbers plus previous numbers. Current input data is reset. Please re-enter valid numbers and operators`))
+        console.log(chalk.red(`Total input operators are over the limit. The amount of operators should be one less than the input numbers plus saved numbers. Current input data is deleted. Please re-enter valid numbers and operators. Type 'help' for more instructions`))
         // console.log(`2nd validation: curent oper length: ${currentOperArr.length}`)
         
         // reset currentNumberArr and currentOperArr when operators lenght over the limit
