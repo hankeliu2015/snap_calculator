@@ -28,7 +28,7 @@ A command line postfix calculator app build upon node.js
 
 - user instruction and examples: need more details content, better format and colors.
 
-- decimal palce: before getting into it, I would rather collect more user feedback.
+- decimal place: base on user feedback.
 
 ### Build With
 
