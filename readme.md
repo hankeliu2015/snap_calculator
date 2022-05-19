@@ -2,6 +2,8 @@
 
 A command line postfix calculator app build upon node.js
 
+![This is an user command line input/output example image](./images/user_input_example.png)
+
 ## Description
 
 - Use 2 sets of arrays to store numbers and operators. CMD-Line Inputed numbers will be stacked in numArr. LILO: the last 2 elements perform arithmetic operation, their result pushed to the end of numArr array and repeat the operation until operator array is empty. CMD-line inputed operators(+, -, \*, /) will be quecued in operArr. FIFO: the first operator in the array will be served first until operArr is empty.
