@@ -1,4 +1,6 @@
-module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], currentOperArr = [], numArr = [], operArr = []) {
+import chalk from 'chalk';
+
+export function inputStrValidation(cmdLineStr, currentNumArr = [], currentOperArr = [], numArr = [], operArr = []) {
     // convert the string into array. this is necessary for identify negative number and minus. 
     let mixedInputArr = cmdLineStr.split(' ')
     // track when operator started to add 
@@ -23,7 +25,7 @@ module.exports = inputStrValidation = function(cmdLineStr, currentNumArr = [], c
             // break current loop
             currentNumArr.splice(0)
             currentOperArr.splice(0)
-            console.log('In postFix calculator, the operators must follow numbers. Please check your numbers/operators order and re-type.')
+            console.log(chalk.red('In postFix calculator, the operators must follow numbers. Please check your numbers/operators order and re-type.'))
             break
         }
     }
