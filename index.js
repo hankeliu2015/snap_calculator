@@ -79,6 +79,8 @@ const calcInput = async function() {
             calcLogic()
         }
     }
+    console.log('Thanks for using Postfix Calculator!')
+    rl.close()
 }
 
 calcInput()
