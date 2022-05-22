@@ -36,7 +36,7 @@
 
 - :writing_hand: Decimal place: base on user feedback.
 
-- :writing_hand: add a message for user when readline module exit
+- :white_check_mark: add a message for user when readline module exit
 
 ### Build With
 
