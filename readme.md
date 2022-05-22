@@ -2,11 +2,11 @@
 
 :tv: A command line postfix calculator app build upon node.js
 
-![This is an user command line input/output example image](./images/user_input_example.png?style=centerme)
-
 <!---
-<p align="center"><img src="./images/user_input_example.png"></p>
+![This is an user command line input/output example image](./images/user_input_example.png?style=centerme)
 --->
+
+<p align="center"><img src="./images/user_input_example.png"></p>
 
 ## Description
 
