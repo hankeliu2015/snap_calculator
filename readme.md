@@ -2,7 +2,11 @@
 
 :tv: A command line postfix calculator app build upon node.js
 
-![This is an user command line input/output example image](./images/user_input_example.png)
+![This is an user command line input/output example image](./images/user_input_example.png?style=centerme)
+
+<!---
+<p align="center"><img src="./images/user_input_example.png"></p>
+--->
 
 ## Description
 
@@ -36,7 +40,7 @@
 
 - :writing_hand: Decimal place: base on user feedback.
 
-- :white_check_mark: add a message for user when readline module exit
+- :white_check_mark: add a message user when user choose to quit or press ctrl+d
 
 ### Build With
 
