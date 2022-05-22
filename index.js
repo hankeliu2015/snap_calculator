@@ -64,7 +64,17 @@ const rl = readline.createInterface({
 
 const calcInput = async function() {
     console.log(chalk.green("Welcome to Postfix Calculator! \nPlease enter numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples"))
+    
+    
     for await ( let cmdLineInput of rl) {
+        // ctrl + d to stop the process
+        process.stdin.on('keypress', (str, key) => {
+            if (key.ctrl && key.name === 'd')  {
+                console.log("Process stdin is stopped by ctrol + d")
+                process.exit(); 
+            }
+        })
+                    
         // treaming leading and trailing whitespaces
         let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
 
