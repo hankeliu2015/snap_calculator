@@ -67,7 +67,7 @@ const calc = async function() {
     
     try {
         for await ( let cmdLineInput of rl) {
-            // ctrl + d to stop the process
+            // use ctrl + d to stop the process - for users who unfamiliar with the app commands. 
             process.stdin.on('keypress', (str, key) => {
                 if (key.ctrl && key.name === 'd')  {
                     console.log("Process stdin is stopped by ctrl + d")
@@ -90,7 +90,7 @@ const calc = async function() {
             }
         }
     } catch (e) {
-        console.log('unexpected error', e)
+        console.log('Unexpected Error:', e)
     }
     console.log('Thanks for using Postfix Calculator!')
     rl.close()

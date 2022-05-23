@@ -39,8 +39,8 @@
 - :writing_hand: Calculator utility features 2 - user might want an undo command to undo clear-all-data.
 
 - :writing_hand: User instruction and examples: need more details content, better format and colors.
-
-- :writing_hand: Decimal place: base on user feedback.
+- :writing_hand: Decimal place: should gave user options to choose decimal places.
+- :writing_hand: Decimal place: handle unexpected operators user put in.
 
 ### Build With
 
