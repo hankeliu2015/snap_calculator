@@ -62,35 +62,38 @@ const rl = readline.createInterface({
     output: process.stdout
   });
 
-const calcInput = async function() {
+const calc = async function() {
     console.log(chalk.green("Welcome to Postfix Calculator! \nPlease enter numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples"))
     
+    try {
+        for await ( let cmdLineInput of rl) {
+            // ctrl + d to stop the process
+            process.stdin.on('keypress', (str, key) => {
+                if (key.ctrl && key.name === 'd')  {
+                    console.log("Process stdin is stopped by ctrl + d")
+                    process.exit(); 
+                }
+            })
+                        
+            // treaming leading and trailing whitespaces
+            let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
     
-    for await ( let cmdLineInput of rl) {
-        // ctrl + d to stop the process
-        process.stdin.on('keypress', (str, key) => {
-            if (key.ctrl && key.name === 'd')  {
-                console.log("Process stdin is stopped by ctrol + d")
-                process.exit(); 
+            if ( cmdLineStr === 'q' || cmdLineStr === 'exit') {
+                 break 
+            } else if ( cmdLineStr === 'show' || cmdLineStr === 'help' || cmdLineStr === 'clear') {
+                calcUtility(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr)
+            } else {
+                inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
+                // no need pass in operArr for operLimitvalidation
+                operLimitValidation(currentNumArr, currentOperArr, numArr)
+                calcLogic()
             }
-        })
-                    
-        // treaming leading and trailing whitespaces
-        let cmdLineStr = cmdLineInput.replace(/^\s+|\s+$/g, '')
-
-        if ( cmdLineStr === 'q' || cmdLineStr === 'exit') {
-             break 
-        } else if ( cmdLineStr === 'show' || cmdLineStr === 'help' || cmdLineStr === 'clear') {
-            calcUtility(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr)
-        } else {
-            inputStrValidation(cmdLineStr, currentNumArr, currentOperArr)
-            // no need pass in operArr for operLimitvalidation
-            operLimitValidation(currentNumArr, currentOperArr, numArr)
-            calcLogic()
         }
+    } catch (e) {
+        console.log('unexpected error', e)
     }
     console.log('Thanks for using Postfix Calculator!')
     rl.close()
 }
 
-calcInput()
+calc()
