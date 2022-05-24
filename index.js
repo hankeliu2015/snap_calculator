@@ -23,7 +23,7 @@ const calcLogic = function(inputStr) {
     // if there are only numbers input without any operators, not perform arithmetic operation. Just output the calcResult, which is the last element in the numArr
     if(operArr.length === 0) {
         console.log(calcResult)
-    } else if(operArr.length >= 1) {
+    } else {
         // when operArr has at least one el, perform operation for the last 2 numArr els
         while(operArr.length > 0) {
             // obtain the first operator and remove it from the operArr
@@ -52,7 +52,7 @@ const calcLogic = function(inputStr) {
         }
     }
     // console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
-    console.log('calculator output:',calcResult)   
+    console.log('calculator output:',calcResult.toFixed(2))   
     // return the calcResult as a number and add a outputDecimal module to control the decimal places. 
     // return calcResult
 }
