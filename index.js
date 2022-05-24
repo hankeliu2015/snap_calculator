@@ -42,12 +42,11 @@ const calcLogic = function(inputStr) {
                     break;
                     case '/': 
                     calcResult = numArr[numArr.length - 2] / numArr[numArr.length - 1]
-                    // break;
+                    break;
                     // default: 
-                    // throw new Error(`arithmetic operator ${currenOper} is not included in this app`)
                 }
                 // remove the last 2 els from numArr
-                // save the operation result and push it into numArr. 
+                // push the operation result into numArr. 
                 numArr.splice(-2, 2, calcResult)
             } 
         }
@@ -56,7 +55,7 @@ const calcLogic = function(inputStr) {
     console.log('calculator output:',calcResult)   
 }
 
-// async solution to manage cmd-line input and exit program
+// async function manages cmd-line input and exit program
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -89,8 +88,8 @@ const calc = async function() {
                 calcLogic()
             }
         }
-    } catch (e) {
-        console.log('Unexpected Error:', e)
+    } catch(e) {
+        console.log('Calculator encounter unexpected Errors:', e)
     }
     console.log('Thanks for using Postfix Calculator!')
     rl.close()

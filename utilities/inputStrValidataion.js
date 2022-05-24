@@ -27,6 +27,9 @@ export function inputStrValidation(cmdLineStr, currentNumArr = [], currentOperAr
             currentOperArr.splice(0)
             console.log(chalk.red('In postFix calculator, the operators input must follow the numbers. Please check your numbers/operators order and re-enter.'))
             break
+        } else {
+            console.log(`Operator ${currentEl} is an invalid operator. Please enter 'help' for a list supported operators`)
+            break
         }
     }
     // console.log(`1st validation end - current number: ${currentNumArr} | current oper: ${currentOperArr}`)

@@ -10,7 +10,7 @@
 
 ## Description
 
-- Use 2 sets of arrays to store numbers and operators. CMD-Line Inputed numbers will be stacked(LILO) in numArr. The last 2 number elements perform arithmetic operation, their result is pushed to the end of numArr array and repeat the operation until operator array is empty. CMD-line inputed operators(+, -, \*, /) will be quecued(FIFO) in operArr. The first operator in the array will be served first until operArr is empty.
+- Use 2 sets of arrays to store numbers and operators. CMD-Line Inputed numbers will be stacked(LILO) in numArr. The last 2 number elements perform arithmetic operation, their result is pushed to the end of numArr array and repeat the operation until operator array is empty. CMD-line inputed operators(+, -, \*, /) will be queued(FIFO) in operArr. The first operator in the array will be served first until operArr is empty.
 
 - CalcLogic() function defines arithmetic logic and performs arithmetic operations after input data validated
 - Choose an asynchronous calcInput() function to manage user interactive runtime command line input/output. Did not use recursive function to manage interactive runtime input. JavaScript Promise's Async/await is more efficient to manage. Recursive function also consumes more memory space and time comlexity.
@@ -18,7 +18,7 @@
 - Use ReadLine module to obtain bash terminal command line input string and control exit commands
 - CalcUtility() function manages calcuator features to improve user experience, such as command line instructions and demo input/output examples. More features can be added here base on users feedbacks.
 - InputStrValidation() funciton validate the current user input. Provide user options to re-enter corrected data.
-- OperLimitValidation() function validates operator limits. Operators must be less then the total numbers - 1
+- OperLimitValidation() function validates operator limits. Operators must be less then the total numbers - 1. Indicate none supported operators.
 
 - Identify postive/negative number and plus/minus operator: Converting the cmdLine input into a mixed array is necessary becuase each array element is eaiser to be identified as negative/postive number or minus/plus operator. Identifying each string with the same way is more complex.
 
@@ -35,12 +35,11 @@
 - :white_check_mark: Calculator utility features 1 - add 'clear' command for user to clear up all numbers 'saved' in calculator
 
 - :white_check_mark: add a message when user choose to quit or press ctrl+d
+- :white_check_mark: handle unexpected operators user entered.
 
-- :writing_hand: Calculator utility features 2 - user might want an undo command to undo clear-all-data.
-
-- :writing_hand: User instruction and examples: need more details content, better format and colors.
 - :writing_hand: Decimal place: should gave user options to choose decimal places.
-- :writing_hand: Decimal place: handle unexpected operators user put in.
+- :writing_hand: User instruction and examples: need more details content, better format and colors.
+- :writing_hand: Calculator utility features 2 - user might want an undo command to undo clear-all-data.
 
 ### Build With
 
