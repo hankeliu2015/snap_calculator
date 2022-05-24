@@ -45,6 +45,8 @@
 - :writing_hand: refactor calcLogic() function with reduceRight, 'accumulate' the numbers array from right to left.
 - :writing_hand: use functional programming method to pipe through input data and validation fuctions.
 
+- :writing_hand: Upgrading to a WebSocket connection. Create a WebSocket constructor on the client side and implement Node.js webSocket library on the backend. More data vlidations modules might be required.
+
 ### Build With
 
 - Node.js
