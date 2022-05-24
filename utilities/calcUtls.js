@@ -7,11 +7,12 @@ const userInstruction = `
     show    show number array & operator array
     clear   clear up all numbers stored in calculator
     --------------------
-    examples: 
-    enter       | output
-    1           | 1
-    1 2 +       | 3
-    1 2 3 + -   | -4
+    Operators   + - * /
+    --------------------
+    examples input  | example output
+    1               | 1
+    1 2 +           | 3
+    1 2 3 + -       | -4
 `
 const calcUtility = function(cmdLineStr, numArr, operArr, currentNumArr, currentOperArr) {
     // a show command to verify numbers and operators stored in calculator
