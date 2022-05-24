@@ -22,27 +22,27 @@
 
 - Identify postive/negative number and plus/minus operator: Converting the cmdLine input into a mixed array is necessary becuase each array element is eaiser to be identified as negative/postive number or minus/plus operator. Identifying each string with the same way is more complex.
 
-- Input data validation 1: if user mixed operators inside numbers, inputStrValidation() function will not process data and console log a message to remind user to enter correct data.
+- Input data validation 1: if user mixed operators inside numbers, inputStrValidation() function will not process data and console log a message to remind user to enter the correct data.
 
   ![screenshot example image 1](./images/input_data_validate_1.png)
 
-- Input data validation 2: If user entered operators more than the numbers can operate, operLimitValidation() function will console log a message to ask user re-enter. Alos, the function will remove the invalid data user previouly entered.
+- Input data validation 2: If user entered operators more than the numbers can operate, operLimitValidation() function will console log a message to ask user re-enter. Also, the function will remove the invalid data user previouly entered.
 
   ![screenshot example image 2](./images/input_data_validate_2.png)
 
 - :white_check_mark: Add text colors for command line output messages
 
-- :white_check_mark: Calculator utility features 1 - add 'clear' command for user to clear up all numbers 'saved' in calculator
+- :white_check_mark: add 'clear' command for user to clear up all numbers 'saved' in calculator
 
 - :white_check_mark: add a message when user choose to quit or press ctrl+d
 - :white_check_mark: handle unexpected operators user entered.
 
-- :writing_hand: Output decimal place: Gave user options to choose decimal places. Need to add a outputDecimal(calcResult, decimalOutput) function to manage decimal places. Declare a varible decimalOutput = 0. CalcUtils() control the decimalOutput value base on users input.
+- :writing_hand: Adjust output decimal places: Gave user options to choose decimal places. Need to add a outputDecimal(calcResult, decimalOutput) function to manage decimal places. Declare a varible decimalOutput = 0. CalcUtils() control the decimalOutput value base on users input.
 
 - :writing_hand: User instruction and examples: need more details content, better format and colors.
-- :writing_hand: Calculator utility features 2 - user might want an undo command, such as undo clear data.
+- :writing_hand: user might want an undo command, such as undo clear data.
 
-- :writing_hand: refactor calcLogin with reduceRight.
+- :writing_hand: refactor calcLogic() function with reduceRight, 'accumulate' the numbers array from right to left.
 - :writing_hand: use functional programming method to pipe through input data and validation fuctions.
 
 ### Build With
