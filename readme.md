@@ -37,7 +37,9 @@
 - :white_check_mark: add a message when user choose to quit or press ctrl+d
 - :white_check_mark: handle unexpected operators user entered.
 
-- :writing_hand: Adjust output decimal places: Gave user options to choose decimal places. Need to add a outputDecimal(calcResult, decimalOutput) function to manage decimal places. Declare a varible decimalOutput = 0. CalcUtils() control the decimalOutput value base on users input.
+- :white_check_mark: Adjust output decimal places 1: Change parseInt() to parseFloat() in inputStrValidation() function. This would convert input number string into float-point number and perserve decimal places.
+
+- :writing_hand: Adjust output decimal places 2: Gave user options to choose decimal places. Need to add a outputDecimal(calcResult, decimalOutput) function to manage decimal places. Declare a varible decimalOutput = 0. CalcUtils() control the decimalOutput value base on users input.
 
 - :writing_hand: User instruction and examples: need more details content, better format and colors.
 - :writing_hand: user might want an undo command, such as undo clear data.
