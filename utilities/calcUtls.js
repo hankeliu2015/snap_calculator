@@ -7,7 +7,8 @@ const userInstruction = `
     show    show number array & operator array
     clear   clear up all numbers stored in calculator
     --------------------
-    Operators   + - * /
+    Valid Operators         + - * /
+    Output decimal places   wip
     --------------------
     examples input  | example output
     1               | 1

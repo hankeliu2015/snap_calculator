@@ -37,7 +37,8 @@
 - :white_check_mark: add a message when user choose to quit or press ctrl+d
 - :white_check_mark: handle unexpected operators user entered.
 
-- :writing_hand: Decimal place: should gave user options to choose decimal places.
+- :writing_hand: Output decimal place: Gave user options to choose decimal places. Need to add a outputDecimal(calcResult, decimalOutput) function to manage decimal places. Declare a varible decimalOutput = 0. CalcUtils() control the decimalOutput value base on users input.
+
 - :writing_hand: User instruction and examples: need more details content, better format and colors.
 - :writing_hand: Calculator utility features 2 - user might want an undo command to undo clear-all-data.
 

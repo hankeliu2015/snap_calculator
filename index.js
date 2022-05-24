@@ -53,6 +53,8 @@ const calcLogic = function(inputStr) {
     }
     // console.log('after arithmetic operation | Numbers array:', numArr, 'Operators array:', operArr)
     console.log('calculator output:',calcResult)   
+    // return the calcResult as a number and add a outputDecimal module to control the decimal places. 
+    // return calcResult
 }
 
 // async function manages cmd-line input and exit program
