@@ -64,7 +64,7 @@ const rl = readline.createInterface({
   });
 
 const calc = async function() {
-    console.log(chalk.green("Welcome to Postfix Calculator! \nPlease enter numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples"))
+    console.log(chalk.yellow("Welcome to Postfix Calculator! \nPlease enter numbers first and operators later. \nType 'q' to quit. \nType 'help' for instructions and examples"))
     
     try {
         for await ( let cmdLineInput of rl) {
@@ -90,10 +90,11 @@ const calc = async function() {
                 calcLogic()
             }
         }
-    } catch(e) {
-        console.log('Calculator encounter unexpected Errors:', e)
+    } catch(error) {
+        // catch any unexpected errors
+        console.log('Calculator encounter unexpected Errors:', error)
     }
-    console.log('Thanks for using Postfix Calculator!')
+    console.log(chalk.green('Thanks for using Postfix Calculator!'))
     rl.close()
 }
 

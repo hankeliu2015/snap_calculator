@@ -40,14 +40,17 @@
 - :writing_hand: Output decimal place: Gave user options to choose decimal places. Need to add a outputDecimal(calcResult, decimalOutput) function to manage decimal places. Declare a varible decimalOutput = 0. CalcUtils() control the decimalOutput value base on users input.
 
 - :writing_hand: User instruction and examples: need more details content, better format and colors.
-- :writing_hand: Calculator utility features 2 - user might want an undo command to undo clear-all-data.
+- :writing_hand: Calculator utility features 2 - user might want an undo command, such as undo clear data.
+
+- :writing_hand: refactor calcLogin with reduceRight.
+- :writing_hand: use functional programming method to pipe through input data and validation fuctions.
 
 ### Build With
 
 - Node.js
 - JavaScript
 - Readline module
-- chalk
+- Chalk
 
 ## Getting started
 
@@ -55,7 +58,7 @@
 
 ## Executing program
 
-- Inside cloned local repo folder, run: node calc.js
+- Inside cloned local repo folder, run: node index.js
 - Follow the command prompt instructions.
 - Type 'help' for instructions and examples
 - Type 'q' to quit the app.
